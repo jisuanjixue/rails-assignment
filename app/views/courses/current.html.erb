@@ -1,0 +1,15 @@
+<% provide(:title, "Course") %>
+<h1><b>All Your Courses</b></h1>
+<hr>
+<div class="container" id="course-page-tab">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#courses">Courses</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="courses" class="tab-pane fade in active">
+     <% @courses.each do |c| %>
+     
+        <%= render :partial => "course", :locals => { :c => c } %>
+      <% end %>
+    </div>

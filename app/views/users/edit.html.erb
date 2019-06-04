@@ -1,0 +1,18 @@
+<h2>Edit Profile</h2>
+
+  <div class="row">
+  <div class="col-md-8 col-md-offset-2 jumbotron">
+    <%= form_for @user  do |f| %>
+      <%= f.label :Name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :Email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :Password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Update Profile Information", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

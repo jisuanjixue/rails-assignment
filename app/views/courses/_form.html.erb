@@ -1,0 +1,19 @@
+
+ <%= f.label :Name %>
+  <%= f.text_field :name, :required => true, minlength: 10, class: 'form-control' %>
+
+  <%= f.label :Prerequisite %>
+  <%= f.text_field :prerequisite, :required => true, minlength: 10, class: 'form-control' %>
+
+  <%= f.label :Description %>
+  <%= f.text_area :description, :required => true, minlength: 30, class: 'form-control' %>
+
+  <%= f.label :category_id %>
+  <%= f.select :category_id, Category.all.map{ |c| [c.name, c.id] }, { }, :class => "form-control" %>
+  <%= f.label :location_id %>
+  <%= f.select :location_id, Location.all.map{ |c| [c.name, c.id] }, {}, :class => "form-control" %>
+
+  <div class="form-group">
+    <%= f.label :images %>
+    <%= f.file_field :images, :multiple => true, :class => "form-control" %>
+  </div>

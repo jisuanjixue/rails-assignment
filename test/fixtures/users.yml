@@ -1,0 +1,4 @@
+tony:
+  name: Tony Jiang
+  email: tony.jiang@rmit.edu.au
+  password_digest: <%= User.digest('246810') %>

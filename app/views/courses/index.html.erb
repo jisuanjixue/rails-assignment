@@ -1,0 +1,35 @@
+<% provide(:title, "Course") %>
+
+<% if (params[:category_id])  %>
+<h1>Courses in <%= @categories.find_by(:id => params[:category_id]).name %></h1>
+<% elsif (params[:location_id])  %>
+<h1>Courses in <%= @locations.find_by(:id => params[:location_id]).name %></h1>
+ <% else %>
+ <h1>All Courses</h1>
+<% end %>
+<hr>
+<div class="container" id="course-page-tab">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#courses">Courses</a></li>
+    <li><a data-toggle="tab" href="#coordinators">Coordinators</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="courses" class="tab-pane fade in active">
+     <% @courses.each do |c| %>
+     
+       <%= render :partial => "course", :locals => { :c => c } %>
+      <% end %>
+    </div>
+
+    <div id="coordinators" class="tab-pane fade">
+      <% @users.each do |u| %>
+        <div class="col-md-2 col-md-offset-5">
+          <%= image_tag("kit.jpg", alt: "Kit Logo", class: "img-responsive") %>
+          <h6><b>Coordinator name: <%= u.name %></b></h6>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

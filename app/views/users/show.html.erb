@@ -1,0 +1,26 @@
+<% provide(:title, "Course") %>
+<h1><b>Coordinator: <%= @user.name %></b></h1>
+<hr>
+<div>
+  <div class="col-md-2 col-md-offset-5">
+    <%= image_tag("kit", alt: "Kit Logo", class: "img-responsive") %>
+  </div>
+  <div class="col-md-2 col-md-offset-5">
+   <hr>
+   </div>
+  <div class="col-md-10 col-md-offset-4">
+  <% @courses.each do |c| %>
+   <section class="course_info">
+      <div class="jumbotron col-md-6">
+        <h4><a href='#'><li><%= c.name %></li></a></h4>
+        <h5>Prerequisite: <%= c.prerequisite %></h5>
+        <h6>Created: <%= c.created_at.strftime("%Y/%m/%d %I:%M") %></h6>
+        <h5 style="text-align: right">
+          <span class="glyphicon glyphicon-thumbs-up"><%= c.votes.count %> &nbsp;
+          <span class="glyphicon glyphicon-thumbs-down"><%= c.numbers.count %></a></span>
+        </h5>
+      </div>
+    </section>
+  <% end %>
+  </div>
+</div>
